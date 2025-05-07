@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react';
-import { Github, Link, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 
 // Main App Component
 export default function App() {
