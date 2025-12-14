@@ -12,6 +12,8 @@ export type QuoteRequestDraft = {
   integrations: string[];
   timeline: "flexible" | "1-2-months" | "urgent" | "not-sure";
   budgetBand: "not-sure" | "budget" | "flexible" | "premium";
+  budgetMin?: number;
+  budgetMax?: number;
 
   name: string;
   email: string;
@@ -34,16 +36,18 @@ export type EstimateResult = {
 
 export function defaultQuoteRequest(): QuoteRequestDraft {
   return {
-    projectType: "web-app",
-    primaryGoal: "customers",
-    size: "medium",
-    contentReadiness: "partial",
-    iterationStyle: "iterate",
-    functionality: "app",
-    dataStorage: "moderate",
+    projectType: "not-sure",
+    primaryGoal: "not-sure",
+    size: "not-sure",
+    contentReadiness: "not-sure",
+    iterationStyle: "not-sure",
+    functionality: "not-sure",
+    dataStorage: "not-sure",
     integrations: [],
-    timeline: "flexible",
+    timeline: "not-sure",
     budgetBand: "not-sure",
+    budgetMin: undefined,
+    budgetMax: undefined,
 
     name: "",
     email: "",

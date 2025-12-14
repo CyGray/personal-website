@@ -5,6 +5,7 @@ export type Project = {
   slug: string;
   title: string;
   shortDescription: string;
+  image: string;
 
   type: ProjectTypeKey;
   typeLabel: string;
@@ -21,26 +22,34 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  {
-    id: "p1",
-    slug: "ops-dashboard",
-    title: "Operations Dashboard",
-    shortDescription: "Internal tool to track tasks, statuses, and performance with role-based access.",
-    type: "business-tool",
-    typeLabel: "Business tool",
-    status: "completed",
-    statusLabel: "Completed",
-    techStack: ["Next.js", "TypeScript", "Firebase", "Tailwind"],
-    primaryTech: ["Next.js", "TypeScript", "Firebase"],
-    problem: "The client needed a single place to manage operational workflows and reduce manual updates.",
-    solution: "I designed and built a dashboard with clear workflows, permissions, and fast navigation.",
-    features: ["Role-based access", "Status tracking", "Search and filters", "Activity log"],
-  },
+    {
+        id: "p1",
+        slug: "maple-habits",
+        title: "Maple",
+        shortDescription: "Dark, mobile-first habit tracker PWA with scheduling, streaks, and offline sync.",
+        image: "/projects/maple-habits.jpg",
+        type: "web-app",
+        typeLabel: "Web app",
+        status: "completed",
+        statusLabel: "Completed",
+        techStack: ["Next.js", "TypeScript", "Firebase", "Tailwind", "Framer Motion", "PWA"],
+        primaryTech: ["Next.js", "TypeScript", "Firebase"],
+        problem: "The client needed a single place to plan habits, track streaks, and stay consistent across devices—even offline—without clunky UIs or data loss.",
+        solution: "Built a dark-themed PWA with scheduled habits, scoped edits, completion heatmap, and mobile bottom nav; added offline caching + sync, Google login, and responsive, scrollable bottom-sheet details.",
+        features: [
+          "Scheduled habits (daily/weekly/monthly/once) with scoped edit/delete and day-of-week targeting",
+          "Completion tracking with heatmap, per-day drawer, inline toggles, sounds, and particle feedback",
+          "Offline-first caching and queued writes with background sync",
+          "Google authentication and installable PWA with service worker & manifest",
+          "Mobile bottom navigation, responsive layout, and animated modals/drawers"
+        ]
+      },      
   {
     id: "p2",
     slug: "custom-ecommerce",
     title: "E-commerce Storefront",
     shortDescription: "Custom storefront with payments, product catalog, and admin tools.",
+    image: "/projects/custom-ecommerce.jpg",
     type: "ecommerce",
     typeLabel: "E-commerce",
     status: "in-progress",
@@ -56,6 +65,7 @@ export const projects: Project[] = [
     slug: "web-app-mvp",
     title: "Web App MVP",
     shortDescription: "MVP for a startup product with iterative delivery and clear scope milestones.",
+    image: "/projects/web-app-mvp.jpg",
     type: "web-app",
     typeLabel: "Web app",
     status: "active",
@@ -71,6 +81,7 @@ export const projects: Project[] = [
     slug: "telegram-automation",
     title: "Telegram Automation Bot",
     shortDescription: "Bot to automate alerts and workflows with third-party API integrations.",
+    image: "/projects/telegram-automation.jpg",
     type: "automation",
     typeLabel: "Automation",
     status: "completed",
