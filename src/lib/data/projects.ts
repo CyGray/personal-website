@@ -27,7 +27,7 @@ export const projects: Project[] = [
         slug: "maple-habits",
         title: "Maple",
         shortDescription: "Dark, mobile-first habit tracker PWA with scheduling, streaks, and offline sync.",
-        image: "/projects/maple-habits.jpg",
+        image: "/projects/maple-habits.png",
         type: "web-app",
         typeLabel: "Web app",
         status: "completed",

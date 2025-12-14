@@ -14,7 +14,7 @@ export function ProjectCard({ project }: { project: Project }) {
           <img
             src={project.image}
             alt={project.title}
-            className="h-full w-full object-cover transition duration-300 hover:scale-[1.02]"
+            className="h-full w-full object-cover object-top transition duration-300 hover:scale-[1.02]"
             loading="lazy"
           />
         </div>
