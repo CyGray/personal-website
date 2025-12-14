@@ -1,11 +1,11 @@
+"use client";
+
 // app/contact/page.tsx
 import { Container } from "@/components/layout/Container";
 import { Card } from "@/components/ui/Card";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/TextArea";
 import { Button } from "@/components/ui/Button";
-
-export const dynamic = "force-static";
 
 export default function ContactPage() {
   return (
@@ -17,8 +17,7 @@ export default function ContactPage() {
             Let’s build something
           </h1>
           <p className="mt-3 max-w-2xl text-[#9CA3AF]">
-            If you’re not sure what to write, use the quote builder — it’ll guide you
-            through the basics.
+            If you’re not sure what to write, use the quote builder — it’ll guide you through the basics.
           </p>
         </div>
 
