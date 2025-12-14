@@ -1,0 +1,34 @@
+import { Container } from "@/components/layout/Container";
+import { Button } from "@/components/ui/Button";
+import { ProjectGrid } from "@/components/projects/ProjectGrid";
+
+export function ProjectsPreviewSection() {
+  return (
+    <section id="projects" className="py-16 sm:py-24">
+      <Container>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-sm text-[#9CA3AF]">Projects</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+              Proof, not promises
+            </h2>
+            <p className="mt-3 max-w-2xl text-[#9CA3AF]">
+              Browse a few examples — then use the quote builder if you want something similar.
+            </p>
+          </div>
+          <Button href="/projects" variant="secondary">
+            View all projects
+          </Button>
+        </div>
+
+        <div className="mt-8">
+          <ProjectGrid mode="preview" />
+        </div>
+
+        <div className="mt-8">
+          <Button href="/quote">Seen enough? Get a quote</Button>
+        </div>
+      </Container>
+    </section>
+  );
+}
