@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Container } from "./Container";
 import { Button } from "@/components/ui/Button";
+import { Facebook, Instagram, Linkedin, MessageCircle } from "lucide-react";
 
 export function Header() {
   const pathname = usePathname() || "";
@@ -36,7 +37,24 @@ export function Header() {
           </nav>
         </div>
 
-        {showQuoteCta && <Button href="/quote">Get a quote</Button>}
+        <div className="flex items-center gap-4">
+          <div className="hidden items-center gap-3 text-[#9CA3AF] sm:flex">
+            <Link className="hover:text-white" href="https://www.facebook.com/Kyle.Yuan.Uy" aria-label="Facebook">
+              <Facebook className="h-4 w-4" />
+            </Link>
+            <Link className="hover:text-white" href="https://www.instagram.com/kyleyuan.uy/" aria-label="Instagram">
+              <Instagram className="h-4 w-4" />
+            </Link>
+            <Link className="hover:text-white" href="https://discordapp.com/users/890930690340823100" aria-label="Discord">
+              <MessageCircle className="h-4 w-4" />
+            </Link>
+            <Link className="hover:text-white" href="https://www.linkedin.com/in/kyle-yuan-uy/" aria-label="LinkedIn">
+              <Linkedin className="h-4 w-4" />
+            </Link>
+          </div>
+
+          {showQuoteCta && <Button href="/quote">Get a quote</Button>}
+        </div>
       </Container>
     </header>
   );
