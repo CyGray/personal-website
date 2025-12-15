@@ -50,14 +50,20 @@ export function ServicesSection() {
       <Container>
         {/* Header */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-sm text-[#9CA3AF]">What I build</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
-              What I can help you build
-            </h2>
-            <p className="mt-3 max-w-2xl text-sm text-[#9CA3AF]">
-              I build software that feels simple to use, even when the logic behind it isn’t.
-            </p>
+          <div className="flex gap-3">
+            <span
+              aria-hidden="true"
+              className="hidden h-16 w-[3px] rounded-full bg-gradient-to-b from-[#16A34A]/60 via-[#16A34A]/20 to-transparent sm:block"
+            />
+            <div>
+              <p className="text-sm text-[#9CA3AF]">What I build</p>
+              <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+                What I can help you build
+              </h2>
+              <p className="mt-3 max-w-2xl text-sm text-[#9CA3AF]">
+                I build software that feels simple to use, even when the logic behind it isn’t.
+              </p>
+            </div>
           </div>
 
           <div className="flex gap-3">
