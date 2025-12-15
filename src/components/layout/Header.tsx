@@ -31,6 +31,9 @@ export function Header() {
             <Link className="hover:text-white" href="/projects">
               Projects
             </Link>
+            <Link className="hover:text-white" href="/about">
+              About
+            </Link>
             <Link className="hover:text-white" href="/contact">
               Contact
             </Link>

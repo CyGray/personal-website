@@ -11,6 +11,9 @@ export function Footer() {
           <a className="hover:text-white" href="/projects">
             Projects
           </a>
+          <a className="hover:text-white" href="/about">
+            About
+          </a>
           <a className="hover:text-white" href="/quote">
             Quote
           </a>
