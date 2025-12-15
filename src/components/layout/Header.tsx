@@ -36,19 +36,6 @@ export function Header() {
 
   useEffect(() => setMounted(true), []);
 
-  // Debug: log when mobile menu renders and the class names used
-  useEffect(() => {
-    if (!mounted) return;
-    // Only log in browser
-    if (typeof window === "undefined") return;
-    console.debug("[Header] Mobile menu state", {
-      open,
-      navClass: "w-full rounded-2xl border border-[#1F2937] bg-[#0B1120] px-6 py-6 text-4xl font-semibold text-white hover:bg-[#111827]",
-      jumpClass: "w-full rounded-2xl border border-[#1F2937] bg-[#0B1120] px-6 py-6 text-4xl text-[#D1D5DB] hover:bg-[#111827]",
-      quoteClass: "mt-1 w-full text-4xl font-semibold text-[#16A34A]",
-    });
-  }, [mounted, open]);
-
   // Close on route change
   useEffect(() => setOpen(false), [pathname]);
 
