@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { Card } from "@/components/ui/Card";
+import { Reveal } from "@/components/ui/Reveal";
 
 const steps = [
   "We clarify your goals and constraints",
@@ -14,26 +15,30 @@ export function ProcessSection() {
   return (
     <section id="process" className="py-16 sm:py-24">
       <Container>
-        <div className="flex gap-3">
-          <span
-            aria-hidden="true"
-            className="hidden h-16 w-[3px] rounded-full bg-gradient-to-b from-[#16A34A]/60 via-[#16A34A]/20 to-transparent sm:block"
-          />
-          <div>
-            <p className="text-sm text-[#9CA3AF]">Process</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">How I work</h2>
-            <p className="mt-3 max-w-2xl text-[#9CA3AF]">
-              You’re involved throughout — I handle the technical and design decisions.
-            </p>
+        <Reveal>
+          <div className="flex gap-3">
+            <span
+              aria-hidden="true"
+              className="hidden h-16 w-[3px] rounded-full bg-gradient-to-b from-[#16A34A]/60 via-[#16A34A]/20 to-transparent sm:block"
+            />
+            <div>
+              <p className="text-sm text-[#9CA3AF]">Process</p>
+              <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">How I work</h2>
+              <p className="mt-3 max-w-2xl text-[#9CA3AF]">
+                You’re involved throughout — I handle the technical and design decisions.
+              </p>
+            </div>
           </div>
-        </div>
+        </Reveal>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((s, i) => (
-            <Card key={s} className="p-5">
-              <p className="text-sm text-[#9CA3AF]">Step {i + 1}</p>
-              <p className="mt-2 font-medium">{s}</p>
-            </Card>
+            <Reveal key={s} delay={100 + i * 100}>
+              <Card className="p-5">
+                <p className="text-sm text-[#9CA3AF]">Step {i + 1}</p>
+                <p className="mt-2 font-medium">{s}</p>
+              </Card>
+            </Reveal>
           ))}
         </div>
       </Container>

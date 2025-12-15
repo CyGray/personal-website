@@ -3,6 +3,7 @@ import { Container } from "@/components/layout/Container";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Briefcase, LayoutGrid, ShoppingBag, Bot, ArrowRight } from "lucide-react";
+import { Reveal } from "@/components/ui/Reveal";
 
 type Service = {
   title: string;
@@ -49,39 +50,49 @@ export function ServicesSection() {
     <section id="services" className="py-16 sm:py-24">
       <Container>
         {/* Header */}
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div className="flex gap-3">
-            <span
-              aria-hidden="true"
-              className="hidden h-16 w-[3px] rounded-full bg-gradient-to-b from-[#16A34A]/60 via-[#16A34A]/20 to-transparent sm:block"
-            />
-            <div>
-              <p className="text-sm text-[#9CA3AF]">What I build</p>
-              <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
-                What I can help you build
-              </h2>
-              <p className="mt-3 max-w-2xl text-sm text-[#9CA3AF]">
-                I build software that feels simple to use, even when the logic behind it isn’t.
-              </p>
+        <Reveal>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div className="flex gap-3">
+              <span
+                aria-hidden="true"
+                className="hidden h-16 w-[3px] rounded-full bg-gradient-to-b from-[#16A34A]/60 via-[#16A34A]/20 to-transparent sm:block"
+              />
+              <div>
+                <p className="text-sm text-[#9CA3AF]">What I build</p>
+                <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+                  What I can help you build
+                </h2>
+                <p className="mt-3 max-w-2xl text-sm text-[#9CA3AF]">
+                  I build software that feels simple to use, even when the logic behind it isn’t.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <Button href="/projects" variant="secondary">
+                See projects
+              </Button>
+              <Button href="/quote">
+                Get a quote <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
           </div>
-
-          <div className="flex gap-3">
-            <Button href="/projects" variant="secondary">
-              See projects
-            </Button>
-            <Button href="/quote">
-              Get a quote <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
-        </div>
+        </Reveal>
 
         {/* Bento grid (Option A) */}
-        <div className="mt-10 grid gap-4 lg:grid-cols-3">
-          <FeaturedCard {...featured} />
-          {items.map((it) => (
-            <CompactCard key={it.title} {...it} />
-          ))}
+        <div className="mt-10 space-y-4">
+          <Reveal>
+            <div className="grid gap-4 lg:grid-cols-3">
+              <FeaturedCard {...featured} />
+            </div>
+          </Reveal>
+          <div className="grid gap-4 lg:grid-cols-3">
+            {items.map((it, idx) => (
+              <Reveal key={it.title} delay={100 + idx * 80}>
+                <CompactCard {...it} />
+              </Reveal>
+            ))}
+          </div>
         </div>
 
         <p className="mt-8 text-sm text-[#9CA3AF]">
