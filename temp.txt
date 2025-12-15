@@ -1,7 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { Container } from "@/components/layout/Container";
 import { Card } from "@/components/ui/Card";
-import { Briefcase, LayoutGrid, ShoppingBag, Bot } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { Briefcase, LayoutGrid, ShoppingBag, Bot, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 
 type Service = {
@@ -48,6 +49,7 @@ export function ServicesSection() {
   return (
     <section id="services" className="py-16 sm:py-24">
       <Container>
+        {/* Header */}
         <Reveal>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div className="flex gap-3">
@@ -61,13 +63,23 @@ export function ServicesSection() {
                   What I can help you build
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm text-[#9CA3AF]">
-                  I build software that feels simple to use, even when the logic behind it isn't.
+                  I build software that feels simple to use, even when the logic behind it isnâ€™t.
                 </p>
               </div>
+            </div>
+
+            <div className="flex gap-3">
+              <Button href="/projects" variant="secondary">
+                See projects
+              </Button>
+              <Button href="/quote">
+                Get a quote <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
           </div>
         </Reveal>
 
+        {/* Bento grid (Option A) */}
         <div className="mt-10 space-y-4">
           <Reveal>
             <div className="grid gap-4 lg:grid-cols-3">
@@ -128,12 +140,13 @@ function FeaturedCard({ title, body, chips = [], icon: Icon, href }: Service) {
                 {chip}
               </span>
             ))}
+            {/* Hide examples link on small screens to avoid wrapping; only show on sm+ where space allows */}
             {href && (
               <a
                 href={href}
                 className="hidden w-full text-xs text-[#D1D5DB] underline decoration-[#1F2937] underline-offset-4 hover:decoration-[#16A34A] sm:inline-flex sm:w-auto sm:text-sm sm:ml-auto sm:text-right"
               >
-                Examples →
+                Examples â†’
               </a>
             )}
           </div>
@@ -156,7 +169,7 @@ function CompactCard({ title, body, icon: Icon, href, chips = [] }: Service) {
               href={href}
               className="text-xs text-[#9CA3AF] underline decoration-[#1F2937] underline-offset-4 hover:text-[#D1D5DB] hover:decoration-[#16A34A]"
             >
-              Examples →
+              Examples ?
             </a>
           )}
         </div>
@@ -182,3 +195,4 @@ function CompactCard({ title, body, icon: Icon, href, chips = [] }: Service) {
     </Card>
   );
 }
+
