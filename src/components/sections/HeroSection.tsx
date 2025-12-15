@@ -23,10 +23,10 @@ export function HeroSection() {
       <Container className="relative z-10">
         <div className="flex flex-col gap-3">
           <Reveal>
-            <p className="text-sm text-[#9CA3AF]">Custom Web Apps / Business Tools / E-Commerce Web Apps / Bots</p>
+            <p className="text-xs sm:text-sm text-[#9CA3AF]">Custom Web Apps / Business Tools / E-Commerce Web Apps / Bots</p>
           </Reveal>
           <Reveal delay={80}>
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+            <h1 className="text-xl font-semibold tracking-tight sm:text-3xl">
               I build <RotatingAccentText />
               <br />
               that help businesses run, sell, and scale.

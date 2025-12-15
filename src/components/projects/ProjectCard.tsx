@@ -19,21 +19,19 @@ export function ProjectCard({ project }: { project: Project }) {
           />
         </div>
         <div className="p-5">
-        <div className="flex flex-wrap items-center gap-2">
-          <Badge>{project.typeLabel}</Badge>
-          <Badge variant="muted">{project.statusLabel}</Badge>
-        </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <h3 className="text-lg font-semibold">{project.title}</h3>
+            <Badge>{project.typeLabel}</Badge>
+          </div>
+          <p className="mt-2 text-sm text-[#9CA3AF]">{project.shortDescription}</p>
 
-        <h3 className="mt-3 text-lg font-semibold">{project.title}</h3>
-        <p className="mt-2 text-sm text-[#9CA3AF]">{project.shortDescription}</p>
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          {project.primaryTech.slice(0, 4).map((t) => (
-            <Badge key={t} variant="muted">
-              {t}
-            </Badge>
-          ))}
-        </div>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {project.primaryTech.slice(0, 4).map((t) => (
+              <Badge key={t} variant="muted">
+                {t}
+              </Badge>
+            ))}
+          </div>
         </div>
       </Card>
     </Link>
