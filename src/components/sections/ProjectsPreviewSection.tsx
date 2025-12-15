@@ -20,7 +20,7 @@ export function ProjectsPreviewSection() {
                   Proof, not promises
                 </h2>
                 <p className="mt-3 max-w-2xl text-[#9CA3AF]">
-                  Browse a few examples — then use the quote builder if you want something similar.
+                  Browse a few examples, then use the quote builder if you want something similar.
                 </p>
               </div>
             </div>

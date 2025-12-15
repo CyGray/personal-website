@@ -140,10 +140,11 @@ function FeaturedCard({ title, body, chips = [], icon: Icon, href }: Service) {
                 {chip}
               </span>
             ))}
+            {/* Hide examples link on small screens to avoid wrapping; only show on sm+ where space allows */}
             {href && (
               <a
                 href={href}
-                className="ml-auto text-sm text-[#D1D5DB] underline decoration-[#1F2937] underline-offset-4 hover:decoration-[#16A34A]"
+                className="hidden w-full text-xs text-[#D1D5DB] underline decoration-[#1F2937] underline-offset-4 hover:decoration-[#16A34A] sm:inline-flex sm:w-auto sm:text-sm sm:ml-auto sm:text-right"
               >
                 Examples →
               </a>
@@ -168,7 +169,7 @@ function CompactCard({ title, body, icon: Icon, href, chips = [] }: Service) {
               href={href}
               className="text-xs text-[#9CA3AF] underline decoration-[#1F2937] underline-offset-4 hover:text-[#D1D5DB] hover:decoration-[#16A34A]"
             >
-              Examples →
+              Examples ?
             </a>
           )}
         </div>

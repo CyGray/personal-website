@@ -4,12 +4,12 @@ import { useMemo } from "react";
 import { cn } from "@/lib/utils/cn";
 import { ProjectTypeKey, projects } from "@/lib/data/projects";
 
-const tabs: Array<{ key: ProjectTypeKey | "all"; label: string }> = [
-  { key: "all", label: "All" },
-  { key: "web-app", label: "Web apps" },
-  { key: "business-tool", label: "Business tools" },
-  { key: "ecommerce", label: "E-commerce" },
-  { key: "automation", label: "Automation" },
+const tabs: Array<{ key: ProjectTypeKey | "all"; label: string; short: string }> = [
+  { key: "all", label: "All", short: "All" },
+  { key: "web-app", label: "Web apps", short: "Web" },
+  { key: "business-tool", label: "Business tools", short: "Business" },
+  { key: "ecommerce", label: "E-commerce", short: "Ecomm" },
+  { key: "automation", label: "Automation", short: "Bots" },
 ];
 
 export function ProjectFilterBar({
@@ -28,56 +28,53 @@ export function ProjectFilterBar({
     return base;
   }, []);
 
-  const activeIndex = Math.max(
-    0,
-    tabs.findIndex((t) => t.key === value)
-  );
-
   return (
     <div className="w-full">
-      <div
-        className={cn(
-          "relative flex w-full flex-wrap items-stretch rounded-2xl border border-[#1F2937] bg-[#0B1120] p-1"
-        )}
-      >
+      <div className="relative">
+        {/* edge fades */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-6 bg-gradient-to-r from-[#0B1120] via-[#0B1120]/70 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-6 bg-gradient-to-l from-[#0B1120] via-[#0B1120]/70 to-transparent" />
+
         <div
-          className="pointer-events-none absolute inset-y-1 rounded-xl border border-[#16A34A]/30 bg-[#16A34A]/10 transition-all duration-300"
-          style={{
-            width: `calc(100% / ${tabs.length})`,
-            transform: `translateX(${activeIndex * 100}%)`,
-          }}
-        />
-
-        {tabs.map((t) => {
-          const active = value === t.key;
-          return (
-            <button
-              key={t.key}
-              type="button"
-              onClick={() => onChange(t.key)}
-              className={cn(
-                "relative z-10 flex flex-1 items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-medium transition",
-                "text-[#D1D5DB] hover:text-white",
-                active && "text-white"
-              )}
-              aria-pressed={active}
-            >
-              <span className="truncate">{t.label}</span>
-              <span
+          className={cn(
+            "relative mx-auto flex w-full max-w-full items-center justify-center gap-2 overflow-x-auto rounded-2xl border border-[#1F2937] bg-[#0B1120] px-3 py-3 whitespace-nowrap snap-x snap-mandatory",
+            "[&::-webkit-scrollbar]:hidden",
+            "scrollbar-width-none"
+          )}
+          style={{ scrollbarWidth: "none" }}
+        >
+          {tabs.map((t) => {
+            const active = value === t.key;
+            return (
+              <button
+                key={t.key}
+                type="button"
+                onClick={() => onChange(t.key)}
                 className={cn(
-                  "min-w-[1.5rem] rounded-full border px-2 py-0.5 text-xs",
+                  "inline-flex shrink-0 items-center justify-center gap-2 rounded-xl px-4 py-2 text-xs font-medium transition sm:text-sm",
                   active
-                    ? "border-transparent bg-transparent text-[#D1FAE5]"
-                    : "border-[#1F2937] bg-[#111827] text-[#9CA3AF]"
+                    ? "border border-[#16A34A]/40 bg-[#16A34A]/10 text-white"
+                    : "border border-[#1F2937] bg-[#0F172A] text-[#D1D5DB] hover:text-white"
                 )}
+                aria-pressed={active}
               >
-                {counts[t.key] ?? 0}
-              </span>
-            </button>
-          );
-        })}
+                <span className="sm:hidden">{t.short}</span>
+                <span className="hidden sm:inline">{t.label}</span>
+                <span
+                  className={cn(
+                    "hidden min-w-[1.5rem] rounded-full border px-2 py-0.5 text-[11px] sm:inline-flex sm:text-xs",
+                    active
+                      ? "border-[#16A34A]/40 bg-[#16A34A]/10 text-[#D1FAE5]"
+                      : "border-[#1F2937] bg-[#111827] text-[#9CA3AF]"
+                  )}
+                >
+                  {counts[t.key] ?? 0}
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </div>
-
     </div>
   );
 }
