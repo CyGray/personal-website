@@ -26,7 +26,7 @@ export function HeroSection() {
             <p className="text-xs sm:text-sm text-[#9CA3AF]">Custom Web Apps / Business Tools / E-Commerce Web Apps / Bots</p>
           </Reveal>
           <Reveal delay={80}>
-            <h1 className="text-xl font-semibold tracking-tight sm:text-3xl">
+            <h1 className="max-[480px]:text-lg max-[360px]:text-base text-[22px] font-semibold tracking-tight sm:text-3xl">
               I build <RotatingAccentText />
               <br />
               that help businesses run, sell, and scale.
