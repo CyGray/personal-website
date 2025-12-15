@@ -130,9 +130,9 @@ function FeaturedCard({ title, body, chips = [], icon: Icon, href }: Service) {
 
         <p className="max-w-2xl text-sm leading-relaxed text-[#D1D5DB]">{body}</p>
 
-        {chips?.length ? (
-          <div className="flex flex-wrap gap-2">
-            {chips.map((chip) => (
+        {(chips?.length || href) && (
+          <div className="flex flex-wrap items-center gap-2">
+            {chips?.map((chip) => (
               <span
                 key={chip}
                 className="rounded-full border border-[#1F2937] bg-[#0B1120] px-3 py-1 text-xs text-[#D1D5DB]"
@@ -140,22 +140,16 @@ function FeaturedCard({ title, body, chips = [], icon: Icon, href }: Service) {
                 {chip}
               </span>
             ))}
+            {href && (
+              <a
+                href={href}
+                className="ml-auto text-sm text-[#D1D5DB] underline decoration-[#1F2937] underline-offset-4 hover:decoration-[#16A34A]"
+              >
+                Examples →
+              </a>
+            )}
           </div>
-        ) : null}
-
-        <div className="mt-auto flex flex-wrap items-center gap-3">
-          <Button href="/quote">
-            Start a quote <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-          {href && (
-            <a
-              href={href}
-              className="text-sm text-[#D1D5DB] underline decoration-[#1F2937] underline-offset-4 hover:decoration-[#16A34A]"
-            >
-              Examples →
-            </a>
-          )}
-        </div>
+        )}
       </div>
     </Card>
   );

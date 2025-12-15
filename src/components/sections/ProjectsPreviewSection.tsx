@@ -12,8 +12,8 @@ export function ProjectsPreviewSection() {
             <div className="flex gap-3">
               <span
                 aria-hidden="true"
-              className="hidden h-16 w-[3px] rounded-full bg-gradient-to-b from-[#16A34A]/60 via-[#16A34A]/20 to-transparent sm:block"
-            />
+                className="hidden h-16 w-[3px] rounded-full bg-gradient-to-b from-[#16A34A]/60 via-[#16A34A]/20 to-transparent sm:block"
+              />
               <div>
                 <p className="text-sm text-[#9CA3AF]">Projects</p>
                 <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
