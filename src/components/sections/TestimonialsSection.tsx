@@ -1,4 +1,7 @@
+ "use client";
+
 import Link from "next/link";
+import { useEffect, useMemo, useRef } from "react";
 import { Container } from "@/components/layout/Container";
 import { Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/ui/Reveal";
@@ -6,6 +9,54 @@ import { testimonials, avatarInitials } from "@/lib/data/testimonials";
 import { Quote, Sparkles, BadgeCheck, ArrowUpRight } from "lucide-react";
 
 export function TestimonialsSection() {
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const items = useMemo(() => {
+    const base = testimonials.slice(0, 4);
+    return [...base, ...base]; // duplicate for seamless loop
+  }, []);
+
+  // Auto-scroll on mobile, respecting reduced motion
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+    const reduce = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+    if (reduce || !isMobile) return;
+
+    let idx = 0;
+    const nodes = Array.from(scroller.children) as HTMLElement[];
+    const total = nodes.length;
+    const baseLength = total / 2;
+    // Center on first item initially
+    if (nodes[0]) {
+      const offset = nodes[0].offsetLeft - (scroller.clientWidth - nodes[0].clientWidth) / 2;
+      scroller.scrollTo({ left: offset, behavior: "auto" });
+    }
+
+    const timer = setInterval(() => {
+      if (!nodes.length) return;
+      idx = (idx + 1) % total;
+      const target = nodes[idx];
+      const offset = target.offsetLeft - (scroller.clientWidth - target.clientWidth) / 2;
+      scroller.scrollTo({
+        left: offset,
+        behavior: "smooth",
+      });
+      // When we hit the first item of the duplicated set, jump back to start to keep forward flow.
+      if (idx === baseLength) {
+        setTimeout(() => {
+          const firstOffset = nodes[0]
+            ? nodes[0].offsetLeft - (scroller.clientWidth - nodes[0].clientWidth) / 2
+            : 0;
+          scroller.scrollTo({ left: firstOffset, behavior: "auto" });
+          idx = 0;
+        }, 400);
+      }
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="testimonials" className="py-16 sm:py-24">
       <Container>
@@ -26,18 +77,21 @@ export function TestimonialsSection() {
         </Reveal>
 
         <div className="mt-8 space-y-4 sm:space-y-6">
-          <div className="-mx-4 overflow-x-auto pb-2 sm:mx-0 sm:pb-0">
-            <div className="mx-auto grid w-max auto-cols-[minmax(280px,320px)] grid-flow-col justify-center gap-4 sm:auto-cols-[minmax(320px,360px)] snap-x snap-mandatory">
-              {testimonials.slice(0, 4).map((t, idx) => {
+          <div className="px-4 overflow-x-hidden overflow-y-hidden pb-2 sm:px-0 sm:pb-0">
+            <div
+              ref={scrollerRef}
+              className="mx-auto grid w-full max-w-full auto-cols-[100%] grid-flow-col justify-center gap-4 overflow-x-auto overflow-y-hidden whitespace-nowrap snap-x snap-mandatory scroll-px-4 px-1 sm:auto-cols-[minmax(320px,360px)] sm:justify-center sm:scroll-px-0"
+            >
+              {items.map((t, idx) => {
                 const metaPrimary = t.projectType || t.built;
                 const metaSecondary = t.result;
                 const Wrapper: any = t.projectHref ? Link : "div";
                 const wrapperProps = t.projectHref ? { href: t.projectHref } : {};
                 return (
-                  <Reveal key={t.id} delay={80 + idx * 80}>
+                  <Reveal key={`${t.id}-${idx}`} delay={80 + idx * 80}>
                     <Wrapper
                       {...wrapperProps}
-                      className="snap-start focus:outline-none focus:ring-2 focus:ring-[#16A34A]/50"
+                      className="snap-center focus:outline-none focus:ring-2 focus:ring-[#16A34A]/50"
                     >
                       <Card className="relative flex h-full w-[280px] flex-shrink-0 flex-col overflow-hidden p-5 sm:w-[320px] sm:p-6 transition hover:border-[#16A34A]/30 hover:bg-[#0F172A]">
                         <div
