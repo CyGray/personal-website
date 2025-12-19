@@ -31,10 +31,6 @@ export function ProjectFilterBar({
   return (
     <div className="w-full">
       <div className="relative">
-        {/* edge fades */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-6 bg-gradient-to-r from-[#0B1120] via-[#0B1120]/70 to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-6 bg-gradient-to-l from-[#0B1120] via-[#0B1120]/70 to-transparent" />
-
         <div
           className={cn(
             "relative mx-auto flex w-full max-w-full items-center justify-center gap-2 overflow-x-auto rounded-2xl border border-[#1F2937] bg-[#0B1120] px-3 py-3 whitespace-nowrap snap-x snap-mandatory",

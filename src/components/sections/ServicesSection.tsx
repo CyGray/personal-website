@@ -74,6 +74,7 @@ export function ServicesSection() {
               <FeaturedCard {...featured} />
             </div>
           </Reveal>
+
           <div className="grid gap-4 lg:grid-cols-3">
             {items.map((it, idx) => (
               <Reveal key={it.title} delay={100 + idx * 80}>
@@ -111,6 +112,7 @@ function FeaturedCard({ title, body, chips = [], icon: Icon, href }: Service) {
               <h3 className="mt-0.5 text-lg font-semibold tracking-tight sm:text-xl">{title}</h3>
             </div>
           </div>
+
           <span className="shrink-0 rounded-full border border-[#16A34A]/30 bg-[#16A34A]/10 px-2.5 py-1 text-xs text-[#D1FAE5]">
             Featured
           </span>
@@ -118,9 +120,9 @@ function FeaturedCard({ title, body, chips = [], icon: Icon, href }: Service) {
 
         <p className="max-w-2xl text-sm leading-relaxed text-[#D1D5DB]">{body}</p>
 
-        {(chips?.length || href) && (
+        {(chips.length > 0 || href) && (
           <div className="flex flex-wrap items-center gap-2">
-            {chips?.map((chip) => (
+            {chips.map((chip) => (
               <span
                 key={chip}
                 className="rounded-full border border-[#1F2937] bg-[#0B1120] px-3 py-1 text-xs text-[#D1D5DB]"
@@ -128,10 +130,11 @@ function FeaturedCard({ title, body, chips = [], icon: Icon, href }: Service) {
                 {chip}
               </span>
             ))}
+
             {href && (
               <a
                 href={href}
-                className="hidden w-full text-xs text-[#D1D5DB] underline decoration-[#1F2937] underline-offset-4 hover:decoration-[#16A34A] sm:inline-flex sm:w-auto sm:text-sm sm:ml-auto sm:text-right"
+                className="hidden w-full text-xs text-[#D1D5DB] underline decoration-[#1F2937] underline-offset-4 hover:decoration-[#16A34A] sm:inline-flex sm:w-auto sm:ml-auto sm:text-sm sm:text-right"
               >
                 Examples →
               </a>
@@ -151,6 +154,7 @@ function CompactCard({ title, body, icon: Icon, href, chips = [] }: Service) {
           <div className="rounded-2xl border border-[#1F2937] bg-[#111827] p-2.5">
             <Icon className="h-5 w-5 text-[#D1D5DB]" />
           </div>
+
           {href && (
             <a
               href={href}
