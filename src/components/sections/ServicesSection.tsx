@@ -57,7 +57,7 @@ export function ServicesSection() {
               />
               <div>
                 <p className="text-sm text-[#9CA3AF]">What I build</p>
-                <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+                <h2 className="mt-2 text-2xl font-semibold leading-[1.3] tracking-tight sm:text-[28px]">
                   What I can help you build
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm text-[#9CA3AF]">
@@ -109,7 +109,7 @@ function FeaturedCard({ title, body, chips = [], icon: Icon, href }: Service) {
             </div>
             <div>
               <p className="text-xs text-[#9CA3AF]">Most common starting point</p>
-              <h3 className="mt-0.5 text-lg font-semibold tracking-tight sm:text-xl">{title}</h3>
+              <h3 className="mt-0.5 text-lg font-semibold leading-[1.35] tracking-tight sm:text-[18px]">{title}</h3>
             </div>
           </div>
 
@@ -166,7 +166,7 @@ function CompactCard({ title, body, icon: Icon, href, chips = [] }: Service) {
         </div>
 
         <div className="space-y-2">
-          <h3 className="text-base font-semibold">{title}</h3>
+          <h3 className="text-base font-semibold leading-[1.35]">{title}</h3>
           <p className="text-sm text-[#9CA3AF]">{body}</p>
         </div>
 

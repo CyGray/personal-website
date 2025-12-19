@@ -293,7 +293,7 @@ export function QuoteStep({ step, draft, setDraft, goNext }: Props) {
   if (step === 0) {
     return (
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">What are you building?</h2>
+        <h2 className="text-2xl font-semibold leading-[1.3] tracking-tight">What are you building?</h2>
         <p className="text-sm text-[#9CA3AF]">Pick the closest match.</p>
         {renderCards(projectOptions, draft.projectType, (v) => set("projectType", v), true)}
       </div>
@@ -304,7 +304,7 @@ export function QuoteStep({ step, draft, setDraft, goNext }: Props) {
   if (step === 1) {
     return (
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">What's the goal?</h2>
+        <h2 className="text-2xl font-semibold leading-[1.3] tracking-tight">What's the goal?</h2>
         <p className="text-sm text-[#9CA3AF]">Pick the closest match.</p>
         {renderCards(goalOptions, draft.primaryGoal, (v) => set("primaryGoal", v), true)}
       </div>
@@ -316,13 +316,13 @@ export function QuoteStep({ step, draft, setDraft, goNext }: Props) {
     return (
       <div className="space-y-6">
         <div className="space-y-3">
-          <h2 className="text-xl font-semibold">Rough size</h2>
+          <h2 className="text-2xl font-semibold leading-[1.3] tracking-tight">Rough size</h2>
           <p className="text-sm text-[#9CA3AF]">Estimate the number of main screens/pages.</p>
           {renderCards(sizeOptions, draft.size, (v) => set("size", v))}
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-xl font-semibold">Content readiness</h2>
+          <h2 className="text-2xl font-semibold leading-[1.3] tracking-tight">Content readiness</h2>
           <p className="text-sm text-[#9CA3AF]">Copy/images/assets status.</p>
           {renderCards(contentOptions, draft.contentReadiness, (v) => set("contentReadiness", v))}
         </div>
@@ -334,7 +334,7 @@ export function QuoteStep({ step, draft, setDraft, goNext }: Props) {
   if (step === 3) {
     return (
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">What should it include?</h2>
+        <h2 className="text-2xl font-semibold leading-[1.3] tracking-tight">What should it include?</h2>
         <p className="text-sm text-[#9CA3AF]">Check the capabilities you need.</p>
         <div className="grid gap-3 sm:grid-cols-2">
           {capabilityOptions.map((cap) => {
@@ -424,13 +424,13 @@ export function QuoteStep({ step, draft, setDraft, goNext }: Props) {
     return (
       <div className="space-y-5">
         <div className="space-y-3">
-          <h2 className="text-xl font-semibold">When do you need this?</h2>
+          <h2 className="text-2xl font-semibold leading-[1.3] tracking-tight">When do you need this?</h2>
           <p className="text-sm text-[#9CA3AF]">Choose the closest fit.</p>
           {renderCards(timelineOptions, draft.timeline, (v) => set("timeline", v))}
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-xl font-semibold">Budget comfort</h2>
+          <h2 className="text-2xl font-semibold leading-[1.3] tracking-tight">Budget comfort</h2>
           <p className="text-sm text-[#9CA3AF]">Helps me suggest the right approach.</p>
           {renderCards(budgetOptions, draft.budgetBand, (v) => set("budgetBand", v))}
           {draft.budgetBand === "budget" && (
@@ -462,7 +462,7 @@ export function QuoteStep({ step, draft, setDraft, goNext }: Props) {
         </div>
 
         <div className="space-y-2">
-          <h3 className="text-lg font-semibold text-white">Contact details</h3>
+          <h3 className="text-[18px] font-semibold leading-[1.35] text-white">Contact details</h3>
           <p className="text-sm text-[#9CA3AF]">Share how to reach you.</p>
         </div>
 

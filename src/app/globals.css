@@ -1,11 +1,20 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/fonts/PlusJakartaSans.ttf") format("truetype");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ---------- Base (safe defaults) ---------- */
 :root {
   color-scheme: dark;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
 
   /* Optional: helps native controls & focus feel consistent */
   accent-color: #16a34a;
@@ -22,6 +31,7 @@ body {
   z-index: 0;
   background-color: #030712;
   min-height: 100%;
+  font-family: var(--font-sans);
 }
 
 /* Global grid + vignette (vignette anchored near hero but applied globally) */

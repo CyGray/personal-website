@@ -6,6 +6,8 @@ const DEFAULT_WORDS = ["custom web apps", "business tools", "e-commerce web apps
 
 type Props = {
   words?: string[];
+  mobileWords?: string[];
+  mobileBreakpoint?: string;
   typingSpeed?: number;
   deletingSpeed?: number;
   pauseMs?: number;
@@ -14,6 +16,8 @@ type Props = {
 
 export function RotatingAccentText({
   words = DEFAULT_WORDS,
+  mobileWords,
+  mobileBreakpoint = "(max-width: 639px)",
   typingSpeed = 140,
   deletingSpeed = 45,
   pauseMs = 1600,
@@ -23,12 +27,18 @@ export function RotatingAccentText({
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const activeWords = useMemo(() => {
+    if (isMobile && mobileWords && mobileWords.length) return mobileWords;
+    return words;
+  }, [isMobile, mobileWords, words]);
 
   const lengthStats = useMemo(() => {
-    if (!words.length) return { min: 0, max: 0 };
-    const lengths = words.map((w) => w.length);
+    if (!activeWords.length) return { min: 0, max: 0 };
+    const lengths = activeWords.map((w) => w.length);
     return { min: Math.min(...lengths), max: Math.max(...lengths) };
-  }, [words]);
+  }, [activeWords]);
 
   useEffect(() => {
     const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -39,14 +49,14 @@ export function RotatingAccentText({
   }, []);
 
   useEffect(() => {
-    if (words.length === 0) return;
+    if (activeWords.length === 0) return;
 
     if (reduceMotion) {
-      setText(words[0]);
+      setText(activeWords[0]);
       return;
     }
 
-    const currentWord = words[wordIndex];
+    const currentWord = activeWords[wordIndex];
     const { min, max } = lengthStats;
     const factor =
       max === min ? 1 : 1 + ((currentWord.length - min) / (max - min)) * 1; // up to 2x for longest
@@ -61,7 +71,7 @@ export function RotatingAccentText({
 
     if (isDeleting && text === "") {
       setIsDeleting(false);
-      setWordIndex((prev) => (prev + 1) % words.length);
+      setWordIndex((prev) => (prev + 1) % activeWords.length);
       delay = effectiveTyping;
     }
 
@@ -79,12 +89,27 @@ export function RotatingAccentText({
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [text, isDeleting, wordIndex, words, typingSpeed, deletingSpeed, pauseMs, reduceMotion]);
+  }, [text, isDeleting, wordIndex, activeWords, typingSpeed, deletingSpeed, pauseMs, reduceMotion, lengthStats]);
+
+  useEffect(() => {
+    const mql = window.matchMedia(mobileBreakpoint);
+    const update = (e: MediaQueryListEvent | MediaQueryList) => setIsMobile(e.matches);
+    update(mql);
+    const handler = (e: MediaQueryListEvent) => update(e);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, [mobileBreakpoint]);
+
+  useEffect(() => {
+    setWordIndex(0);
+    setText("");
+    setIsDeleting(false);
+  }, [activeWords]);
 
   const displayText = useMemo(() => {
-    if (reduceMotion) return words[0] || "";
+    if (reduceMotion) return activeWords[0] || "";
     return text;
-  }, [text, words, reduceMotion]);
+  }, [text, activeWords, reduceMotion]);
 
   return (
     <span className="relative inline-flex items-baseline gap-1 leading-tight">

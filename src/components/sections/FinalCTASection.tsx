@@ -11,11 +11,11 @@ export function FinalCTASection() {
             className="hidden h-16 w-[3px] rounded-full bg-gradient-to-b from-[#16A34A]/60 via-[#16A34A]/20 to-transparent sm:block"
           />
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-              Tell me what you’d like to build
+            <h2 className="text-2xl font-semibold leading-[1.3] tracking-tight sm:text-[28px]">
+              Tell me what you would like to build
             </h2>
             <p className="mt-3 max-w-2xl text-[#9CA3AF]">
-              Use the quote builder if you want a structured estimate — or contact me directly if you already know what you need.
+              Use the quote builder for a structured estimate, or contact me directly if you already know what you need.
             </p>
           </div>
         </div>

@@ -20,7 +20,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
         <div className="p-5">
           <div className="flex flex-wrap items-center gap-2">
-            <h3 className="text-lg font-semibold">{project.title}</h3>
+            <h3 className="text-[18px] font-semibold leading-[1.35]">{project.title}</h3>
             <Badge>{project.typeLabel}</Badge>
           </div>
           <p className="mt-2 text-sm text-[#9CA3AF]">{project.shortDescription}</p>

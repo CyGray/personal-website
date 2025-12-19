@@ -31,7 +31,6 @@ export function QuoteLayout() {
   const goNext = () => setStep((s) => Math.min(totalSteps - 1, s + 1));
 
   const handleSubmit = async () => {
-    // Basic client-side validation
     if (!draft.name.trim()) {
       setStep(4);
       setError("Name is required.");
@@ -80,7 +79,7 @@ export function QuoteLayout() {
     return (
       <Card className="p-6 sm:p-8">
         <p className="text-sm text-[#9CA3AF]">Submitted</p>
-        <h1 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+        <h1 className="mt-2 text-[24px] font-semibold leading-[1.3] tracking-tight sm:text-[28px]">
           Thanks — I’ve received your request
         </h1>
         <p className="mt-3 max-w-2xl text-[#9CA3AF]">
@@ -100,13 +99,13 @@ export function QuoteLayout() {
       <div className="space-y-6">
         <div>
           <p className="text-sm text-[#9CA3AF]">Quote builder</p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h1 className="mt-2 text-[32px] font-semibold leading-[1.2] tracking-tight sm:text-[40px]">
             Build your project plan
           </h1>
           <p className="mt-3 max-w-2xl text-[#9CA3AF]">
             Answer a few quick questions to get a ballpark estimate. I will follow up with details.
           </p>
-          <p className="mt-2 text-sm text-[#9CA3AF]">About 2–3 minutes.</p>
+          <p className="mt-2 text-sm text-[#9CA3AF]">About 2-3 minutes.</p>
         </div>
 
         <Card className="p-6">
@@ -129,25 +128,25 @@ export function QuoteLayout() {
             </Button>
 
             <div className="ml-auto flex gap-3">
-            {canGoNext ? (
-              <Button
-                type="button"
-                onClick={goNext}
-                className="min-w-[124px] bg-[#16A34A] text-white hover:bg-[#15803D]"
-              >
-                Continue
-              </Button>
-            ) : (
-              <Button
-                type="button"
-                onClick={handleSubmit}
-                disabled={submitting}
-                variant="primary"
-                className="min-w-[140px] bg-[#16A34A] text-white hover:bg-[#15803D] shadow-lg shadow-[#16A34A]/25"
-              >
-                {submitting ? "Submitting..." : "Submit quote"}
-              </Button>
-            )}
+              {canGoNext ? (
+                <Button
+                  type="button"
+                  onClick={goNext}
+                  className="min-w-[124px] bg-[#16A34A] text-white hover:bg-[#15803D]"
+                >
+                  Continue
+                </Button>
+              ) : (
+                <Button
+                  type="button"
+                  onClick={handleSubmit}
+                  disabled={submitting}
+                  variant="primary"
+                  className="min-w-[140px] bg-[#16A34A] text-white hover:bg-[#15803D] shadow-lg shadow-[#16A34A]/25"
+                >
+                  {submitting ? "Submitting..." : "Submit quote"}
+                </Button>
+              )}
             </div>
           </div>
 

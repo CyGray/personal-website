@@ -116,7 +116,9 @@ export function TestimonialsSection() {
             />
             <div>
               <p className="text-sm text-[#9CA3AF]">Testimonials</p>
-              <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">What clients say</h2>
+              <h2 className="mt-2 text-2xl font-semibold leading-[1.3] tracking-tight sm:text-[28px]">
+                What clients say
+              </h2>
               <p className="mt-3 max-w-2xl text-sm text-[#9CA3AF]">
                 Notes from recent projects to help you gauge fit and style.
               </p>

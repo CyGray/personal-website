@@ -2,20 +2,13 @@ import React from "react";
 import { Container } from "@/components/layout/Container";
 import { Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/ui/Reveal";
-import {
-  Compass,
-  FileText,
-  CheckCircle2,
-  Hammer,
-  RefreshCw,
-  Rocket,
-} from "lucide-react";
+import { Compass, FileText, CheckCircle2, Hammer, RefreshCw, Rocket } from "lucide-react";
 
 const phases = [
   {
     title: "Discover",
     outcome: "We clarify your goals, users, and constraints.",
-    detail: "10–20 min call or async brief",
+    detail: "10-20 min call or async brief",
     Icon: Compass,
   },
   {
@@ -62,16 +55,13 @@ export function ProcessSection() {
             />
             <div className="max-w-2xl">
               <p className="text-sm text-[#9CA3AF]">Process</p>
-              <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+              <h2 className="mt-2 text-2xl font-semibold leading-[1.3] tracking-tight sm:text-[28px]">
                 How I work
               </h2>
               <p className="mt-3 text-[#9CA3AF]">
-                You stay involved. I handle the technical and design decisions
-                and keep things clear from day one.
+                You stay involved. I handle the technical and design decisions and keep things clear from day one.
               </p>
-              <p className="mt-2 text-sm text-[#D1D5DB]">
-                Clear scope → clean build → smooth launch.
-              </p>
+              <p className="mt-2 text-sm text-[#D1D5DB]">Clear scope + clean build + smooth launch.</p>
             </div>
           </div>
         </Reveal>
@@ -84,9 +74,7 @@ export function ProcessSection() {
             {phases.map((p, i) => (
               <Reveal key={p.title} delay={100 + i * 90}>
                 <Card className="h-full p-5">
-                  {/* IMPORTANT: internal flex column for equal height */}
                   <div className="flex h-full flex-col">
-                    {/* Top content */}
                     <div className="flex items-start gap-3">
                       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-[#1F2937] bg-[#0B1120]">
                         <p.Icon className="h-5 w-5 text-[#9CA3AF]" />
@@ -94,24 +82,15 @@ export function ProcessSection() {
 
                       <div className="min-w-0">
                         <div className="flex items-center justify-between gap-3">
-                          <p className="font-semibold text-white">
-                            {p.title}
-                          </p>
-                          <span className="text-xs text-[#9CA3AF]">
-                            {String(i + 1).padStart(2, "0")}
-                          </span>
+                          <p className="font-semibold text-white">{p.title}</p>
+                          <span className="text-xs text-[#9CA3AF]">{String(i + 1).padStart(2, "0")}</span>
                         </div>
 
-                        <p className="mt-2 text-sm text-[#D1D5DB]">
-                          {p.outcome}
-                        </p>
+                        <p className="mt-2 text-sm text-[#D1D5DB]">{p.outcome}</p>
                       </div>
                     </div>
 
-                    {/* Bottom-aligned detail */}
-                    <p className="mt-auto pt-4 text-xs text-[#9CA3AF]">
-                      {p.detail}
-                    </p>
+                    <p className="mt-auto pt-4 text-xs text-[#9CA3AF]">{p.detail}</p>
                   </div>
                 </Card>
               </Reveal>
