@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-const DEFAULT_WORDS = ["custom web apps", "business tools", "e-commerce web apps", "bots"];
+const DEFAULT_WORDS = ["custom web apps", "business tools", "bots"];
 
 type Props = {
   words?: string[];
@@ -125,7 +125,7 @@ export function RotatingAccentText({
         className={`inline-block h-[1.1em] w-[1px] translate-y-[5px] bg-[#16A34A] ${reduceMotion ? "" : "animate-pulse"}`}
       />
       <span className="sr-only">
-        custom web apps, business tools, e-commerce web apps, and bots
+        custom web apps, business tools, and bots
       </span>
     </span>
   );

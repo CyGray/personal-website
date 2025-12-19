@@ -14,8 +14,7 @@ export default function ProjectsPage() {
             Work & case studies
           </h1>
           <p className="mt-3 max-w-2xl text-[#9CA3AF]">
-            A focused selection of projects across web apps, business tools, e-commerce,
-            and automation.
+            A focused selection of projects across web apps, business tools, and automation.
           </p>
         </div>
 

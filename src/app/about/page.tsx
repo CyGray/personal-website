@@ -4,7 +4,6 @@ import { Container } from "@/components/layout/Container";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { testimonials } from "@/lib/data/testimonials";
 import { projects } from "@/lib/data/projects";
 
 export const dynamic = "force-static";
@@ -44,10 +43,6 @@ export default function AboutPage() {
     {
       title: "Portfolio sites & landing pages",
       body: "Clean, modern pages that communicate clearly and convert visitors into leads.",
-    },
-    {
-      title: "E-commerce websites",
-      body: "Storefronts with payments, integrations, and admin workflows built to stay maintainable.",
     },
     {
       title: "Automation & bots",
@@ -131,7 +126,6 @@ export default function AboutPage() {
           <div className="mt-6 flex flex-wrap gap-2">
             <Badge>Custom web apps</Badge>
             <Badge variant="muted">Business tools</Badge>
-            <Badge variant="muted">E-commerce</Badge>
             <Badge variant="muted">Automation</Badge>
           </div>
         </section>
@@ -251,32 +245,7 @@ export default function AboutPage() {
               </div>
             </Card>
 
-            {/* Testimonials */}
-            <Card className="p-6">
-              <h3 className="text-lg font-semibold">What clients say</h3>
-              <p className="mt-2 text-sm text-[#9CA3AF]">
-                A couple of quick notes from people I’ve worked with.
-              </p>
-
-              <div className="mt-5 space-y-4">
-                {testimonials.slice(0, 2).map((t) => (
-                  <div
-                    key={t.id}
-                    className="rounded-2xl border border-[#1F2937] bg-[#111827] p-4"
-                  >
-                    <p className="text-sm text-[#D1D5DB]">“{t.quote}”</p>
-                    <p className="mt-3 text-sm font-medium">{t.name}</p>
-                  </div>
-                ))}
-              </div>
-
-              <p className="mt-5 text-sm text-[#9CA3AF]">
-                Want something similar? The quote builder is the fastest way to start.
-              </p>
-              <div className="mt-4">
-                <Button href="/quote">Start your quote</Button>
-              </div>
-            </Card>
+            {/* Testimonials removed for now. */}
           </div>
         </section>
 

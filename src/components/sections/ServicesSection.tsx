@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "@/components/layout/Container";
 import { Card } from "@/components/ui/Card";
-import { Briefcase, LayoutGrid, ShoppingBag, Bot } from "lucide-react";
+import { Briefcase, LayoutGrid, Bot } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 
 type Service = {
@@ -26,13 +26,6 @@ const items: Service[] = [
     body: "Clear sites that explain what you do and convert visitors.",
     chips: ["SEO", "Fast load"],
     icon: Briefcase,
-    href: "/projects",
-  },
-  {
-    title: "E-commerce websites",
-    body: "Custom storefronts with payments, admin, and the integrations you need.",
-    chips: ["Checkout", "Admin"],
-    icon: ShoppingBag,
     href: "/projects",
   },
   {

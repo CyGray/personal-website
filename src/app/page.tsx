@@ -5,7 +5,6 @@ import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ProjectsPreviewSection } from "@/components/sections/ProjectsPreviewSection";
 import { QuoteTeaserSection } from "@/components/sections/QuoteTeaserSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FinalCTASection } from "@/components/sections/FinalCTASection";
 
 export default function HomePage() {
@@ -16,7 +15,7 @@ export default function HomePage() {
       <ProjectsPreviewSection />
       <QuoteTeaserSection />
       <ProcessSection />
-      <TestimonialsSection />
+      {/* TestimonialsSection removed for now */}
       <section id="contact" className="py-16 sm:py-24">
         <Container>
           <FinalCTASection />

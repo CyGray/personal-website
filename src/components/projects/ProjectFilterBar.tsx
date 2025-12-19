@@ -8,7 +8,6 @@ const tabs: Array<{ key: ProjectTypeKey | "all"; label: string; short: string }>
   { key: "all", label: "All", short: "All" },
   { key: "web-app", label: "Web apps", short: "Web" },
   { key: "business-tool", label: "Business tools", short: "Business" },
-  { key: "ecommerce", label: "E-commerce", short: "Ecomm" },
   { key: "automation", label: "Automation", short: "Bots" },
 ];
 

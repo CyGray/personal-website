@@ -23,13 +23,13 @@ export function HeroSection() {
       <Container className="relative z-10">
         <div className="flex flex-col gap-3">
           <Reveal>
-            <p className="text-xs sm:text-sm text-[#9CA3AF]">Custom Web Apps / Business Tools / E-Commerce Web Apps / Bots</p>
+            <p className="text-xs sm:text-sm text-[#9CA3AF]">Custom Web Apps / Business Tools / Bots</p>
           </Reveal>
           <Reveal delay={80}>
             <h1 className="text-[32px] font-semibold leading-[1.15] tracking-tight sm:text-[44px] lg:text-[52px]">
               I build{" "}
               <RotatingAccentText
-                mobileWords={["web apps", "tools", "e-commerce", "bots"]}
+                mobileWords={["web apps", "tools", "bots"]}
               />
               <br />
               that help businesses run, sell, and scale.
